@@ -110,7 +110,7 @@
                       </div>
                       <div id="step-2">
                         <!-- start form for validation -->
-                    	<div class="col-md-8 col-sm-8 col-xs-12">
+                    	<div class="col-md-8 col-sm-8 col-xs-12 center-margin">
                       		<label for="fullname">1. How likely is it that you would recommend this company to a friend or colleague?</label>
 							  <input type="text" id="fullname" class="form-control" name="fullname" required />
 								<br/>
