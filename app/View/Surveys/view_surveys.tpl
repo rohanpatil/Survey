@@ -12,6 +12,7 @@
                           <th>Description</th>
                           <th>Status</th>
                           <th>Created On</th>
+                          <th>Questions</th>
                           <th>Responses</th>
                           <th class="no-sort">Analyze</th>
                         </tr>
@@ -22,6 +23,7 @@
                           <td>Nixon</td>
                           <td><span class="label label-success">Active</span></td>
                           <td>2008/12/19</td>
+                          <td>10</td>
                           <td>61</td>
                           <td><i class="fa fa-pie-chart fa-lg"></i></td>
                         </tr>
@@ -30,6 +32,7 @@
                           <td>Winters</td>
                           <td><span class="label label-success">Active</span></td>
                           <td>2008/12/19</td>
+                          <td>10</td>
                           <td>63</td>
                           <td><i class="fa fa-pie-chart fa-lg"></i></td>
                         </tr>
@@ -38,6 +41,7 @@
                           <td>Cox</td>
                           <td><span class="label label-success">Active</span></td>
                           <td>2008/12/19</td>
+                          <td>10</td>
                           <td>66</td>
                           <td><i class="fa fa-pie-chart fa-lg"></i></td>
                         </tr>
@@ -46,6 +50,7 @@
                           <td>Kelly</td>
                           <td><span class="label label-danger">Closed</span></td>
                           <td>2008/12/19</td>
+                          <td>18</td>
                           <td>22</td>
                           <td><i class="fa fa-pie-chart fa-lg"></i></td>
                         </tr>
@@ -55,6 +60,7 @@
                           <td><span class="label label-success">Active</span></td>
                           <td>2008/12/19</td>
                           <td>33</td>
+                          <td>5</td>
                           <td><i class="fa fa-pie-chart fa-lg"></i></td>
                         </tr>
                         <tr>
@@ -62,6 +68,7 @@
                           <td>Williamson</td>
                           <td><span class="label label-success">Active</span></td>
                           <td>2008/12/19</td>
+                          <td>10</td>
                           <td>61</td>
                           <td><i class="fa fa-pie-chart fa-lg"></i></td>
                         </tr>
@@ -70,6 +77,7 @@
                           <td>Chandler</td>
                           <td><span class="label label-success">Active</span></td>
                           <td>2008/12/19</td>
+                          <td>10</td>
                           <td>59</td>
                           <td><i class="fa fa-pie-chart fa-lg"></i></td>
                         </tr>
@@ -78,6 +86,7 @@
                           <td>Davidson</td>
                           <td><span class="label label-danger">Closed</span></td>
                           <td>2008/12/19</td>
+                          <td>10</td>
                           <td>55</td>
                           <td><i class="fa fa-pie-chart fa-lg"></i></td>
                         </tr>
@@ -86,6 +95,7 @@
                           <td>Hurst</td>
                           <td><span class="label label-danger">Closed</span></td>
                           <td>2008/12/19</td>
+                          <td>10</td>
                           <td>39</td>
                           <td><i class="fa fa-pie-chart fa-lg"></i></td>
                         </tr>
@@ -94,6 +104,7 @@
                           <td>Frost</td>
                           <td><span class="label label-success">Active</span></td>
                           <td>2008/12/19</td>
+                          <td>10</td>
                           <td>23</td>
                           <td><i class="fa fa-pie-chart fa-lg"></i></td>
                         </tr>
@@ -103,13 +114,15 @@
                           <td>Office Manager</td>
                           <td>London</td>
                           <td>30</td>
-                          <td>2008/12/19</td>
+                           <td>10</td>
+                           <td>2008/12/19</td>
                         </tr>
                         <tr>
                           <td>Quinn</td>
                           <td>Flynn</td>
                           <td>Support Lead</td>
                           <td>Edinburgh</td>
+                          <td>10</td>
                           <td>22</td>
                           <td>2013/03/03</td>
                         </tr>
@@ -118,6 +131,7 @@
                           <td>Marshall</td>
                           <td>Regional Director</td>
                           <td>San Francisco</td>
+                          <td>10</td>
                           <td>36</td>
                           <td>2008/10/16</td>
                         </tr>
@@ -126,6 +140,7 @@
                           <td>Kennedy</td>
                           <td>Senior Marketing Designer</td>
                           <td>London</td>
+                          <td>10</td>
                           <td>43</td>
                           <td>2012/12/18</td>
                         </tr>
@@ -134,6 +149,7 @@
                           <td>Fitzpatrick</td>
                           <td>Regional Director</td>
                           <td>London</td>
+                          <td>10</td>
                           <td>19</td>
                           <td>2010/03/17</td>
                         </tr>
@@ -142,6 +158,7 @@
                           <td>Silva</td>
                           <td>Marketing Designer</td>
                           <td>London</td>
+                          <td>10</td>
                           <td>66</td>
                           <td>2012/11/27</td>
                         </tr>
@@ -150,6 +167,7 @@
                           <td>Byrd</td>
                           <td>Chief Financial Officer (CFO)</td>
                           <td>New York</td>
+                          <td>10</td>
                           <td>64</td>
                           <td>2010/06/09</td>
                         </tr>
@@ -158,6 +176,7 @@
                           <td>Little</td>
                           <td>Systems Administrator</td>
                           <td>New York</td>
+                          <td>10</td>
                           <td>59</td>
                           <td>2009/04/10</td>
                         </tr>
@@ -166,6 +185,7 @@
                           <td>Greer</td>
                           <td>Software Engineer</td>
                           <td>London</td>
+                          <td>10</td>
                           <td>41</td>
                           <td>2012/10/13</td>
                         </tr>
@@ -174,6 +194,7 @@
                           <td>Rios</td>
                           <td>Personnel Lead</td>
                           <td>Edinburgh</td>
+                          <td>10</td>
                           <td>35</td>
                           <td>2012/09/26</td>
                         </tr>
@@ -182,6 +203,7 @@
                           <td>Caldwell</td>
                           <td>Development Lead</td>
                           <td>New York</td>
+                          <td>10</td>
                           <td>30</td>
                           <td>2011/09/03</td>
                         </tr>
@@ -190,6 +212,7 @@
                           <td>Berry</td>
                           <td>Chief Marketing Officer (CMO)</td>
                           <td>New York</td>
+                          <td>10</td>
                           <td>40</td>
                           <td>2009/06/25</td>
                         </tr>
@@ -198,6 +221,7 @@
                           <td>Vance</td>
                           <td>Pre-Sales Support</td>
                           <td>New York</td>
+                          <td>10</td>
                           <td>21</td>
                           <td>2011/12/12</td>
                         </tr>
@@ -206,6 +230,7 @@
                           <td>Wilder</td>
                           <td>Sales Assistant</td>
                           <td>Sidney</td>
+                          <td>10</td>
                           <td>23</td>
                           <td>2010/09/20</td>
                         </tr>
@@ -214,6 +239,7 @@
                           <td>Ramos</td>
                           <td>Chief Executive Officer (CEO)</td>
                           <td>London</td>
+                          <td>10</td>
                           <td>47</td>
                           <td>2009/10/09</td>
                         </tr>
@@ -222,6 +248,7 @@
                           <td>Joyce</td>
                           <td>Developer</td>
                           <td>Edinburgh</td>
+                          <td>10</td>
                           <td>42</td>
                           <td>2010/12/22</td>
                         </tr>
@@ -230,6 +257,7 @@
                           <td>Chang</td>
                           <td>Regional Director</td>
                           <td>Singapore</td>
+                          <td>10</td>
                           <td>28</td>
                           <td>2010/11/14</td>
                         </tr>
@@ -238,6 +266,7 @@
                           <td>Wagner</td>
                           <td>Software Engineer</td>
                           <td>San Francisco</td>
+                          <td>10</td>
                           <td>28</td>
                           <td>2011/06/07</td>
                         </tr>
@@ -246,6 +275,7 @@
                           <td>Green</td>
                           <td>Chief Operating Officer (COO)</td>
                           <td>San Francisco</td>
+                          <td>10</td>
                           <td>48</td>
                           <td>2010/03/11</td>
                         </tr>
@@ -254,6 +284,7 @@
                           <td>Itou</td>
                           <td>Regional Marketing</td>
                           <td>Tokyo</td>
+                          <td>10</td>
                           <td>20</td>
                           <td>2011/08/14</td>
                         </tr>
@@ -262,6 +293,7 @@
                           <td>House</td>
                           <td>Integration Specialist</td>
                           <td>Sidney</td>
+                          <td>10</td>
                           <td>37</td>
                           <td>2011/06/02</td>
                         </tr>
@@ -270,6 +302,7 @@
                           <td>Burks</td>
                           <td>Developer</td>
                           <td>London</td>
+                          <td>10</td>
                           <td>53</td>
                           <td>2009/10/22</td>
                         </tr>
@@ -278,6 +311,7 @@
                           <td>Bartlett</td>
                           <td>Technical Author</td>
                           <td>London</td>
+                          <td>10</td>
                           <td>27</td>
                           <td>2011/05/07</td>
                         </tr>
@@ -286,6 +320,7 @@
                           <td>Cortez</td>
                           <td>Team Leader</td>
                           <td>San Francisco</td>
+                          <td>10</td>
                           <td>22</td>
                           <td>2008/10/26</td>
                         </tr>
@@ -294,6 +329,7 @@
                           <td>Mccray</td>
                           <td>Post-Sales support</td>
                           <td>Edinburgh</td>
+                          <td>10</td>
                           <td>46</td>
                           <td>2011/03/09</td>
                         </tr>
@@ -302,6 +338,7 @@
                           <td>Butler</td>
                           <td>Marketing Designer</td>
                           <td>San Francisco</td>
+                          <td>10</td>
                           <td>47</td>
                           <td>2009/12/09</td>
                         </tr>
@@ -310,6 +347,7 @@
                           <td>Hatfield</td>
                           <td>Office Manager</td>
                           <td>San Francisco</td>
+                          <td>10</td>
                           <td>51</td>
                           <td>2008/12/16</td>
                         </tr>
@@ -318,6 +356,7 @@
                           <td>Fuentes</td>
                           <td>Secretary</td>
                           <td>San Francisco</td>
+                          <td>10</td>
                           <td>41</td>
                           <td>2010/02/12</td>
                         </tr>
@@ -326,6 +365,7 @@
                           <td>Harrell</td>
                           <td>Financial Controller</td>
                           <td>San Francisco</td>
+                          <td>10</td>
                           <td>62</td>
                           <td>2009/02/14</td>
                         </tr>
@@ -334,6 +374,7 @@
                           <td>Mooney</td>
                           <td>Office Manager</td>
                           <td>London</td>
+                          <td>10</td>
                           <td>37</td>
                           <td>2008/12/11</td>
                         </tr>
@@ -342,6 +383,7 @@
                           <td>Bradshaw</td>
                           <td>Director</td>
                           <td>New York</td>
+                          <td>10</td>
                           <td>65</td>
                           <td>2008/09/26</td>
                         </tr>
@@ -350,6 +392,7 @@
                           <td>Liang</td>
                           <td>Support Engineer</td>
                           <td>Singapore</td>
+                          <td>10</td>
                           <td>64</td>
                           <td>2011/02/03</td>
                         </tr>
@@ -358,6 +401,7 @@
                           <td>Nash</td>
                           <td>Software Engineer</td>
                           <td>London</td>
+                          <td>10</td>
                           <td>38</td>
                           <td>2011/05/03</td>
                         </tr>
@@ -366,6 +410,7 @@
                           <td>Yamamoto</td>
                           <td>Support Engineer</td>
                           <td>Tokyo</td>
+                          <td>10</td>
                           <td>37</td>
                           <td>2009/08/19</td>
                         </tr>
@@ -374,6 +419,7 @@
                           <td>Walton</td>
                           <td>Developer</td>
                           <td>New York</td>
+                          <td>10</td>
                           <td>61</td>
                           <td>2013/08/11</td>
                         </tr>
@@ -382,6 +428,7 @@
                           <td>Camacho</td>
                           <td>Support Engineer</td>
                           <td>San Francisco</td>
+                          <td>10</td>
                           <td>47</td>
                           <td>2009/07/07</td>
                         </tr>
@@ -390,6 +437,7 @@
                           <td>Baldwin</td>
                           <td>Data Coordinator</td>
                           <td>Singapore</td>
+                          <td>10</td>
                           <td>64</td>
                           <td>2012/04/09</td>
                         </tr>
@@ -398,6 +446,7 @@
                           <td>Frank</td>
                           <td>Software Engineer</td>
                           <td>New York</td>
+                          <td>10</td>
                           <td>63</td>
                           <td>2010/01/04</td>
                         </tr>
@@ -406,6 +455,7 @@
                           <td>Serrano</td>
                           <td>Software Engineer</td>
                           <td>San Francisco</td>
+                          <td>10</td>
                           <td>56</td>
                           <td>2012/06/01</td>
                         </tr>
@@ -414,6 +464,7 @@
                           <td>Acosta</td>
                           <td>Junior Javascript Developer</td>
                           <td>Edinburgh</td>
+                          <td>10</td>
                           <td>43</td>
                           <td>2013/02/01</td>
                         </tr>
