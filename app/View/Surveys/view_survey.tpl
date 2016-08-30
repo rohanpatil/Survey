@@ -199,7 +199,7 @@
 								</div>
 							  </div>
 								<br/>
-								  <label for="message">6. Do you have any other comments, questions, or concerns?:</label>
+								  <label for="message">6. Do you have any other comments, questions, or concerns?</label>
 								  <textarea id="message" required="required" class="form-control" name="message" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.."
 									data-parsley-validation-threshold="10"></textarea>
 							</div>

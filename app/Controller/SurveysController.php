@@ -7,6 +7,14 @@ class SurveysController extends AppController {
 	public function viewSurvey() {
 		
 	}
+	
+	public function viewSurveys() {
+		
+	}
+	
+	public function viewSurveyDetails() {
+		
+	}
 }
 
 ?>

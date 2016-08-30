@@ -40,6 +40,8 @@
 	
 	Router::connect('/dashboard', array('controller' => 'dashboards', 'action' => 'viewDashboard'));
 	Router::connect('/survey', array('controller' => 'surveys', 'action' => 'viewSurvey'));
+	Router::connect('/surveys', array('controller' => 'surveys', 'action' => 'viewSurveys'));
+	Router::connect('/surveys/view_survey/:id', array('controller' => 'surveys', 'action' => 'viewSurveyDetails'), array( 'pass' => array( 'id' ) ) );
 	
 /**
  * Load all plugin routes. See the CakePlugin documentation on
