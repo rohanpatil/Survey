@@ -26,8 +26,8 @@
                 <h3>General</h3>
                 <ul class="nav side-menu">
                   <li><a href="/dashboard"><i class="fa fa-home"></i> Home </a></li>
+                  <li><a href="/surveys"><i class="fa fa-edit"></i> My Surveys </a></li>
                   <li><a><i class="fa fa-building"></i> Organizations </a></li>
-                  <li><a href="/surveys"><i class="fa fa-edit"></i> Surveys </a></li>
                 </ul>
               </div>
             </div>

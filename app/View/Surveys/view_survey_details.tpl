@@ -20,6 +20,8 @@
                         </li>
                         <li role="presentation" class=""><a href="#tab_content2" role="tab" id="share-tab" data-toggle="tab" aria-expanded="false"><i class="fa fa-share-alt fa-lg"></i> Share</a>
                         </li>
+                        <li role="presentation" class=""><a href="#tab_content4" role="tab" id="collaborators-tab" data-toggle="tab" aria-expanded="false"><i class="fa fa-users fa-lg"></i> Collaborators</a>
+                        </li>
                         <li role="presentation" class=""><a href="#tab_content3" role="tab" id="result-tab" data-toggle="tab" aria-expanded="false"><i class="fa fa-pie-chart fa-lg"></i> Analyze Result</a>
                         </li>
                       </ul>
@@ -124,6 +126,43 @@
                           		<label>To get people to take your survey, just send them this link!</label>
                         		<input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12" value="https://survey-beta.herokuapp.com/survey">
                        	 	</div>
+                        </div>
+                         <div role="tabpanel" class="tab-pane fade" id="tab_content4" aria-labelledby="share-tab">
+                        	<div class="col-md-6 col-sm-6 col-xs-12">
+								  <div class="x_content">
+									<table class="table table-striped">
+									  <thead>
+										<tr>
+										  <th>Name</th>
+										  <th>Email</th>
+										  <th class="text-center">Invite Sent</th>
+										  <th class="text-center">Responded</th>
+										</tr>
+									  </thead>
+									  <tbody>
+										<tr>
+										  <td>Mark Otto</td>
+										  <td>asd@mdo.com</td>
+										  <td class="text-center text-success"><i class="fa fa-check fa-lg"></i></td>
+										  <td class="text-center text-success"><i class="fa fa-check fa-lg"></i></td>
+										</tr>
+										<tr>
+										  <td>Jacob Thornton</td>
+										  <td>asd@mdo.com</td>
+										  <td class="text-center text-success"><i class="fa fa-check fa-lg"></i></td>
+										  <td class="text-center text-success"></td>
+										</tr>
+										<tr>
+										  <td>Larry the Bird</td>
+										  <td>asd@mdo.com</td>
+										  <td class="text-center text-success"><i class="fa fa-check fa-lg"></i></td>
+										  <td class="text-center text-success"></td>
+										</tr>
+									  </tbody>
+									</table>
+
+								  </div>
+							  </div>
                         </div>
                         <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="result-tab">
                         	<br/>
