@@ -39,9 +39,10 @@
 	Router::connect('/signout', array('controller' => 'authentications', 'action' => 'signOut'));
 	
 	Router::connect('/dashboard', array('controller' => 'dashboards', 'action' => 'viewDashboard'));
-	Router::connect('/survey', array('controller' => 'surveys', 'action' => 'viewSurvey'));
 	Router::connect('/surveys', array('controller' => 'surveys', 'action' => 'viewSurveys'));
 	Router::connect('/surveys/view_survey/:id', array('controller' => 'surveys', 'action' => 'viewSurveyDetails'), array( 'pass' => array( 'id' ) ) );
+	Router::connect('/survey/insert_survey_result', array('controller' => 'surveys', 'action' => 'insertSurveyResult') );
+	Router::connect('/survey/:id', array('controller' => 'surveys', 'action' => 'viewSurvey'), array( 'pass' => array( 'id' ) ) );
 	
 /**
  * Load all plugin routes. See the CakePlugin documentation on

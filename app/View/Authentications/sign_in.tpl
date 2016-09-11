@@ -30,10 +30,17 @@
       <div class="login_wrapper">
         <div class="animate form login_form">
           <section class="login_content">
+          	{if true eq isset($errors)}
+			  		<div class="alert alert-danger" style="font-size: 90%; font-weight:bold;"> 
+						{foreach from=$errors item="error"}
+							<p>{$error}</p>
+						 {/foreach}
+				  	</div>
+				 {/if}
             <form action="/signin" method="post" class="panel-body">
               <h1>Login Form</h1>
               <div>
-                <input type="text" name="username" class="form-control" placeholder="Username" required="" />
+                <input type="text" name="email_address" class="form-control" placeholder="Email Address" required="" />
               </div>
               <div>
                 <input type="password" name="password" class="form-control" placeholder="Password" required="" />

@@ -33,21 +33,17 @@ App::uses('Controller', 'Controller');
 class AppController extends Controller {
 	public $viewClass = 'SmartyView.Smarty';
 	public $intUserSessionId;
-	
-	function signIn() {
-		
-	}
+	public $strOrgnizationName;
 	
 	function beforeFilter() {
-		if( 'authentications' != $this->params['controller'] ) {
-			
-			/*$this->intUserSessionId = $this->Session->read('user_session_id');
-			
+		if( 'authentications' != $this->params['controller'] && ( false == in_array( $this->params['action'], array( 'insertSurveyResult', 'viewSurvey' ) ) ) ) {			
+			$this->intUserSessionId = $this->Session->read('user_session_id');
+			$this->strOrgnizationName = $this->Session->read('organization_name');
 			if( null == $this->intUserSessionId ) {
 				echo '<script type="text/javascript">window.location.href = "/signout";</script>';
 				exit;
-			}*/
-			
+			}
+			$this->set( 'organization_name', $this->strOrgnizationName );
 		}
 	}
 }

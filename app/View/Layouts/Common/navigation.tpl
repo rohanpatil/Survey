@@ -1,4 +1,4 @@
-<div class="col-md-3 left_col menu_fixed">
+		<div class="col-md-3 left_col menu_fixed">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
               <a href="/dashboard" class="site_title"><i class="fa fa-wpforms pricing" style="color: #2A3F54;"></i> <span>Surves</span></a>
@@ -13,7 +13,7 @@
               </div>
               <div class="profile_info">
                 <span>Welcome,</span>
-                <h2>John Doe</h2>
+                <h2>{$organization_name}</h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -27,7 +27,7 @@
                 <ul class="nav side-menu">
                   <li><a href="/dashboard"><i class="fa fa-home"></i> Home </a></li>
                   <li><a href="/surveys"><i class="fa fa-edit"></i> My Surveys </a></li>
-                  <li><a><i class="fa fa-building"></i> Organizations </a></li>
+<!--                   <li><a><i class="fa fa-building"></i> Organizations </a></li> -->
                 </ul>
               </div>
             </div>
@@ -45,13 +45,13 @@
              <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="/img/img.jpg" alt="">John Doe
+                    <img src="/img/img.jpg" alt="">{$organization_name}
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
                     <li><a href="javascript:;"> Profile</a></li>
                     <li><a href="javascript:;">Help</a></li>
-                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                    <li><a href="/signout"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                   </ul>
                 </li>
               </ul>

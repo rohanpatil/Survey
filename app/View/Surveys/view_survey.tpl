@@ -37,7 +37,7 @@
                   </div>
                   <div class="x_content">
 
-
+				<form id="fill_survey" action="/survey/insert_survey_result" method="POST" class="form-horizontal data-parsley-validate form-label-left">
                     <!-- Smart Wizard -->
                     <div id="wizard" class="form_wizard wizard_horizontal">
                       <ul class="wizard_steps">
@@ -69,27 +69,26 @@
                           </a>
                         </li>
                       </ul>
-                      <div id="step-1">
-                        <form class="form-horizontal form-label-left">
-
-                          <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Name <span class="required">*</span>
+                     <div id="step-1">   
+                     	<div style="min-height:260px;">                
+							<div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Name <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
+                              <input type="text" name="name" required="required" data-parsley-group="personal" class="form-control col-md-7 col-xs-12">
                             </div>
                           </div>
                           <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Email <span class="required">*</span>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Email <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input type="text" id="last-name" name="last-name" required="required" class="form-control col-md-7 col-xs-12">
+                              <input type="email" name="email" required="required" data-parsley-group="personal" data-parsley-type="email" class="form-control col-md-7 col-xs-12">
                             </div>
                           </div>
                           <div class="form-group">
-                            <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Phone</label>
+                            <label for="phone" class="control-label col-md-3 col-sm-3 col-xs-12">Phone</label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input id="middle-name" class="form-control col-md-7 col-xs-12" type="text" name="middle-name">
+                              <input class="form-control col-md-7 col-xs-12" type="text" name="phone">
                             </div>
                           </div>
                           <div class="form-group">
@@ -97,117 +96,62 @@
                             <div class="col-md-6 col-sm-6 col-xs-12">
                               <div id="gender" class="btn-group" data-toggle="buttons">
                                 <label class="btn btn-default active" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                                  <input type="radio" name="gender" value="male" checked> &nbsp; Male &nbsp;
+                                  <input type="radio" name="gender" value="Male" checked> &nbsp; Male &nbsp;
                                 </label>
                                 <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                                  <input type="radio" name="gender" value="female"> Female
+                                  <input type="radio" name="gender" value="Female"> Female
                                 </label>
                               </div>
                             </div>
                           </div>
-                        </form>
-
+                          </div>     
                       </div>
                       <div id="step-2">
                         <!-- start form for validation -->
                     	<div class="col-md-8 col-sm-8 col-xs-12 center-margin">
-                      		<label for="fullname">1. How likely is it that you would recommend this company to a friend or colleague?</label>
-							  <input type="text" id="fullname" class="form-control" name="fullname" required />
+                    		{foreach from=$questions name="question" item="question"}
+                      			{if 1 eq $smarty.foreach.question.iteration}
+                      				<input type="hidden" value="{$question.surveyId__c}" name="survey_id"> 
+                      				<input type="hidden" value="{$question.organization_id__c}" name="organization_id">
+                      				{assign var="organization_name" value=$question.organization_name__c}
+                      			{/if}
+                          		<label>{$smarty.foreach.question.iteration}. {$question.title__c}</label>
+                          		
+                          		{if $question.type__c eq 'text'}
+							  		<input type="text" class="form-control" name="questions[{$question.id__c}]" required />
+							  	{elseif $question.type__c eq 'textarea'}
+							  		 <textarea id="message" required="required" class="form-control" name="questions[{$question.id__c}]" data-parsley-trigger="keyup"></textarea>
+							  	{elseif $question.type__c eq 'radio'}
+							  		{if false eq empty($question.options__c)}
+							  			<div>
+							  			{foreach from=$question.options__c|@json_decode item="option"}
+							  				<div class="radio">
+												<input type="radio" class="flat" name="questions[{$question.id__c}]" value="{$option}" required /> {$option}
+											</div>
+							  			{/foreach}
+							  			</div>
+							  		{/if}
+							  	{elseif $question.type__c eq 'checkbox'}	 
+							  		{if false eq empty($question.options__c)}
+							  			<div>
+							  			{foreach from=$question.options__c|@json_decode item="option"}
+							  				<div class="checkbox">
+												<input type="checkbox" name="questions[{$question.id__c}][]" required value="{$option}" class="flat" /> {$option}
+											</div>
+							  			{/foreach}
+							  			</div>
+							  		{/if}
+								{/if}
 								<br/>
-							 <label>2. Overall, how satisfied or dissatisfied are you with our company?</label>
-							  <div>
-							  	<div class="radio">
-									<input type="radio" class="flat" name="gender" id="genderM" value="M" checked="" required /> Very satisfied
-								</div>
-								<div class="radio">
-									<input type="radio" class="flat" name="gender" id="genderF" value="F" /> Somewhat satisfied
-								</div>	
-								<div class="radio">
-									<input type="radio" class="flat" name="gender" id="genderF" value="F" /> Neither satisfied nor dissatisfied
-								</div>	
-								<div class="radio">
-									<input type="radio" class="flat" name="gender" id="genderF" value="F" /> Somewhat dissatisfied
-								</div>	
-								<div class="radio">
-									<input type="radio" class="flat" name="gender" id="genderF" value="F" /> Very dissatisfied
-								</div>	
-							  </div>
-							   <br/>
-							  <label>3. Which of the following words would you use to describe our products? Select all that apply.</label>
-							  <div>
-								<div class="checkbox">
-									<input type="checkbox" name="hobbies[]" id="hobby1" value="ski" data-parsley-mincheck="2" required class="flat" /> Reliable
-								</div>
-								<div class="checkbox">
-									<input type="checkbox" name="hobbies[]" id="hobby2" value="run" class="flat" /> High quality
-								</div>	
-								<div class="checkbox">
-									<input type="checkbox" name="hobbies[]" id="hobby3" value="eat" class="flat" /> Useful
-								</div>	
-								<div class="checkbox">
-									<input type="checkbox" name="hobbies[]" id="hobby4" value="sleep" class="flat" /> Unique
-								</div>	
-								<div class="checkbox">
-									<input type="checkbox" name="hobbies[]" id="hobby4" value="sleep" class="flat" /> Good value for money
-								</div>	
-								<div class="checkbox">
-									<input type="checkbox" name="hobbies[]" id="hobby4" value="sleep" class="flat" /> Overpriced
-								</div>	
-								<div class="checkbox">
-									<input type="checkbox" name="hobbies[]" id="hobby4" value="sleep" class="flat" /> Impractical
-								</div>	
-								<div class="checkbox">
-									<input type="checkbox" name="hobbies[]" id="hobby4" value="sleep" class="flat" /> Ineffective
-								</div>	
-							  </div>
-							  <br/>
-							  <label>4. How well do our products meet your needs?</label>
-							  <div>
-								<div class="radio">
-									<input type="radio" class="flat" name="gender" id="genderM" value="M" checked="" required /> Extremely well
-								</div>
-								<div class="radio">
-									<input type="radio" class="flat" name="gender" id="genderF" value="F" /> Very well
-								</div>	
-								<div class="radio">
-									<input type="radio" class="flat" name="gender" id="genderF" value="F" /> Somewhat well
-								</div>	
-								<div class="radio">
-									<input type="radio" class="flat" name="gender" id="genderF" value="F" /> Not so well
-								</div>	
-								<div class="radio">
-									<input type="radio" class="flat" name="gender" id="genderF" value="F" /> Not at all well
-								</div>
-							  </div>
-							  <br/>
-							  <label>5. How would you rate the quality of the product?</label>
-							  <div>
-								<div class="radio">
-									<input type="radio" class="flat" name="gender" id="genderM" value="M" checked="" required /> Very high quality
-								</div>
-								<div class="radio">
-									<input type="radio" class="flat" name="gender" id="genderF" value="F" /> High quality
-								</div>	
-								<div class="radio">
-									<input type="radio" class="flat" name="gender" id="genderF" value="F" /> Neither high nor low quality
-								</div>	
-								<div class="radio">
-									<input type="radio" class="flat" name="gender" id="genderF" value="F" /> Low quality
-								</div>	
-								<div class="radio">
-									<input type="radio" class="flat" name="gender" id="genderF" value="F" /> Very low quality
-								</div>
-							  </div>
-								<br/>
-								  <label for="message">6. Do you have any other comments, questions, or concerns?</label>
-								  <textarea id="message" required="required" class="form-control" name="message" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.."
-									data-parsley-validation-threshold="10"></textarea>
+                          	{/foreach}
 							</div>
                     	</div>
                     	<div id="step-3" class="text-center dark" style="padding-top:20px;">
                     		<h2>Thank you for your feedback!</h2>
-							<p style="margin-bottom: 50px;">We appreciate your time and valuable feedback in helping us make Google Affiliate Network better!</p>
+							<p style="margin-bottom: 50px;">We appreciate your time and valuable feedback in helping us make {$organization_name} better!</p>
                     	</div>
+                    	</form>
+                    	
                     <!-- end form for validations -->
                       </div>
 
@@ -245,13 +189,16 @@
     <script src="/js/iCheck/icheck.min.js"></script>
     <!-- Custom Theme Scripts -->
     <script src="/js/custom.js"></script>
-
+	<!-- Parsley -->
+    <script src="/js/parsley.min.js"></script>
     <!-- jQuery Smart Wizard -->
+    {literal}
     <script>
       $(document).ready(function() {
         $('#wizard').smartWizard({
         	keyNavigation: false,
-        	reverseButtonsOrder: true
+        	reverseButtonsOrder: true,
+        	onLeaveStep:leaveAStepCallback
         });
 
         $('.buttonNext').addClass('btn btn-success');
@@ -259,8 +206,33 @@
         $('.buttonFinish').addClass('btn btn-default');
    
       });
+
+      function leaveAStepCallback(obj){
+    	  var step = obj.attr('rel');
+		  var boolAdvanceStep = false;
+		  	
+    	  if( step == 1 ) {
+    	  	 $('#fill_survey').parsley().validate({group: 'personal', force: true});
+    	  	 return $('#fill_survey').parsley().isValid({group: 'personal', force: true});
+    	  } else if( step == 2 ) {
+    		 postDataAjax( '/survey/insert_survey_result', $('#fill_survey').serialize() );
+			 return true;
+    	  }
+      }
+
+   	function postDataAjax( strUrl, strData ) {
+    	return $.ajax({
+            type:"POST",
+            url:strUrl,
+               data: strData,
+               beforeSend: function( xhr ) {
+                //$( "#" + strReloadHtml ).html( '<div style="background-color: #ffffff;width: 100%;height: 100%;z-index: 9999;opacity: 0.6;filter: alpha(opacity=60);font-size: 40px;text-align: center;vertical-align: middle;top: 0;padding: 40px 0;"><i class="fa fa-spinner fa-spin"></i></div>' );
+               }
+    	});
+ 	}
       
     </script>
+    {/literal}
     <!-- /jQuery Smart Wizard -->
   </body>
 </html>

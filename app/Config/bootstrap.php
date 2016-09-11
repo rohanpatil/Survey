@@ -92,6 +92,22 @@ CakePlugin::load('SmartyView');
  *
  * ));
  */
+
+//Error Messages
+Configure::write(
+		array(
+				'ERROR_MSG_ACCOUNT_ID_REQUIRED' 	=> 'Invalid Account ID, please contact clientservices@anyonehome.com for assistance',
+				'ERROR_MSG_INVALID_ACCOUNT_ID_EMAIL'=> 'Invalid Account ID or Email, please contact clientservices@anyonehome.com for assistance',
+				'ERROR_MSG_EMAIL_REQUIRED'		 	=> 'Invalid Email, please contact clientservices@anyonehome.com for assistance',
+				'ERROR_MSG_PASSWORD_REQUIRED' 		=> 'Invalid Password.',
+				'ERROR_MSG_INVALID_EMAIL'			=> 'Invalid Email, please contact clientservices@anyonehome.com for assistance',
+				'ERROR_MSG_ALREADY_ENROLLED'		=> 'Account already exists for this email address',
+				'ERROR_MSG_FAILED_SIGN_UP'			=> 'Failed to sign up.',
+				'ERROR_MSG_NO_ACCOUNT_ASSOCIATED'	=> 'No account associated with that email.',
+				'ERROR_MSG_INVALID_EMAIL_PASSWORD'	=> 'Invalid Email or Password.'
+		)
+	);
+
 Configure::write('Dispatcher.filters', array(
 	'AssetDispatcher',
 	'CacheDispatcher'

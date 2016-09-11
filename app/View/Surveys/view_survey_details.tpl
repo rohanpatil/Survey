@@ -3,14 +3,21 @@
 <div class="col-md-12 col-sm-12 col-xs-12">
 	<!-- .breadcrumb --> 
 		<ul class="breadcrumb">
-			<li><a style="cursor: pointer;" href="/leads/my_leads"><i class="fa fa-edit"></i> Surveys</a></li> 
-			<li><i class="fa fa-file-o"></i> Customer Satisfaction Survey</li> 
+			<li><a style="cursor: pointer;" href="/surveys"><i class="fa fa-edit"></i> Surveys</a></li> 
+			<li><i class="fa fa-file-o"></i> {$survey->title__c}</li> 
 		</ul> 
 		<!-- / .breadcrumb --> 
-		<h2>Customer Satisfaction Survey</h2>
-		<p>
-			Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
-		</p>
+		<div class="col-md-9 col-sm-9 col-xs-12">
+			<h2>{$survey->title__c}</h2> 
+			<p>
+				{$survey->description__c} 
+			</p>
+		</div>
+		<div class="col-md-3 col-sm-3 col-xs-12">
+			<label class="alignright">
+               	 <input type="checkbox" class="active-swich" {if $survey->isActive__c eq true} checked {/if} /> <span id="survey-status">{if $survey->isActive__c eq true}Open{else}Closed{/if}</span>
+            </label>
+		</div>
 		<div class="">
                 <div class="x_panel">
                   <div class="x_content">
@@ -28,103 +35,42 @@
                       <div id="myTabContent" class="tab-content" style="margin-top: 20px;">
                         <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
                           <div class="col-md-7 col-sm-7 col-xs-12">
-							<label for="fullname">1. How likely is it that you would recommend this company to a friend or colleague?</label>
-							  <input type="text" id="fullname" class="form-control" name="fullname" required />
+                          	{foreach from=$questions name="question" item="question"}
+                          		<label for="fullname">{$smarty.foreach.question.iteration}. {$question.title__c}</label>
+                          		
+                          		{if $question.type__c eq 'text'}
+							  		<input type="text" id="fullname" class="form-control" name="fullname" required />
+							  	{elseif $question.type__c eq 'textarea'}
+							  		 <textarea id="message" required="required" class="form-control" name="message" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.."></textarea>
+							  	{elseif $question.type__c eq 'radio'}
+							  		{if false eq empty($question.options__c)}
+							  			<div>
+							  			{foreach from=$question.options__c|@json_decode item="option"}
+							  				<div class="radio">
+												<input type="radio" class="flat" name="gender" id="genderM" value="M" required /> {$option}
+											</div>
+							  			{/foreach}
+							  			</div>
+							  		{/if}
+							  	{elseif $question.type__c eq 'checkbox'}	 
+							  		{if false eq empty($question.options__c)}
+							  			<div>
+							  			{foreach from=$question.options__c|@json_decode item="option"}
+							  				<div class="checkbox">
+												<input type="checkbox" name="hobbies[]" id="hobby1" value="ski" data-parsley-mincheck="2" required class="flat" /> {$option}
+											</div>
+							  			{/foreach}
+							  			</div>
+							  		{/if}
+								{/if}
 								<br/>
-							 <label>2. Overall, how satisfied or dissatisfied are you with our company?</label>
-							  <div>
-							  	<div class="radio">
-									<input type="radio" class="flat" name="gender" id="genderM" value="M" checked="" required /> Very satisfied
-								</div>
-								<div class="radio">
-									<input type="radio" class="flat" name="gender" id="genderF" value="F" /> Somewhat satisfied
-								</div>	
-								<div class="radio">
-									<input type="radio" class="flat" name="gender" id="genderF" value="F" /> Neither satisfied nor dissatisfied
-								</div>	
-								<div class="radio">
-									<input type="radio" class="flat" name="gender" id="genderF" value="F" /> Somewhat dissatisfied
-								</div>	
-								<div class="radio">
-									<input type="radio" class="flat" name="gender" id="genderF" value="F" /> Very dissatisfied
-								</div>	
-							  </div>
-							   <br/>
-							  <label>3. Which of the following words would you use to describe our products? Select all that apply.</label>
-							  <div>
-								<div class="checkbox">
-									<input type="checkbox" name="hobbies[]" id="hobby1" value="ski" data-parsley-mincheck="2" required class="flat" /> Reliable
-								</div>
-								<div class="checkbox">
-									<input type="checkbox" name="hobbies[]" id="hobby2" value="run" class="flat" /> High quality
-								</div>	
-								<div class="checkbox">
-									<input type="checkbox" name="hobbies[]" id="hobby3" value="eat" class="flat" /> Useful
-								</div>	
-								<div class="checkbox">
-									<input type="checkbox" name="hobbies[]" id="hobby4" value="sleep" class="flat" /> Unique
-								</div>	
-								<div class="checkbox">
-									<input type="checkbox" name="hobbies[]" id="hobby4" value="sleep" class="flat" /> Good value for money
-								</div>	
-								<div class="checkbox">
-									<input type="checkbox" name="hobbies[]" id="hobby4" value="sleep" class="flat" /> Overpriced
-								</div>	
-								<div class="checkbox">
-									<input type="checkbox" name="hobbies[]" id="hobby4" value="sleep" class="flat" /> Impractical
-								</div>	
-								<div class="checkbox">
-									<input type="checkbox" name="hobbies[]" id="hobby4" value="sleep" class="flat" /> Ineffective
-								</div>	
-							  </div>
-							  <br/>
-							  <label>4. How well do our products meet your needs?</label>
-							  <div>
-								<div class="radio">
-									<input type="radio" class="flat" name="gender" id="genderM" value="M" checked="" required /> Extremely well
-								</div>
-								<div class="radio">
-									<input type="radio" class="flat" name="gender" id="genderF" value="F" /> Very well
-								</div>	
-								<div class="radio">
-									<input type="radio" class="flat" name="gender" id="genderF" value="F" /> Somewhat well
-								</div>	
-								<div class="radio">
-									<input type="radio" class="flat" name="gender" id="genderF" value="F" /> Not so well
-								</div>	
-								<div class="radio">
-									<input type="radio" class="flat" name="gender" id="genderF" value="F" /> Not at all well
-								</div>
-							  </div>
-							  <br/>
-							  <label>5. How would you rate the quality of the product?</label>
-							  <div>
-								<div class="radio">
-									<input type="radio" class="flat" name="gender" id="genderM" value="M" checked="" required /> Very high quality
-								</div>
-								<div class="radio">
-									<input type="radio" class="flat" name="gender" id="genderF" value="F" /> High quality
-								</div>	
-								<div class="radio">
-									<input type="radio" class="flat" name="gender" id="genderF" value="F" /> Neither high nor low quality
-								</div>	
-								<div class="radio">
-									<input type="radio" class="flat" name="gender" id="genderF" value="F" /> Low quality
-								</div>	
-								<div class="radio">
-									<input type="radio" class="flat" name="gender" id="genderF" value="F" /> Very low quality
-								</div>
-							  </div>
-								<br/>
-								  <label for="message">6. Do you have any other comments, questions, or concerns?</label>
-								  <textarea id="message" required="required" class="form-control" name="message" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.."
-									data-parsley-validation-threshold="10"></textarea>
+                          	{/foreach}
 							</div>		
                         </div>
                         <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="share-tab">
                         	<div class="col-md-6 col-sm-6 col-xs-12">
                           		<label>To get people to take your survey, just send them this link!</label>
-                        		<input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12" value="https://survey-beta.herokuapp.com/survey">
+                        		<input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12" value="https://survey-beta.herokuapp.com/survey/{$survey->guid__c}">
                        	 	</div>
                         </div>
                          <div role="tabpanel" class="tab-pane fade" id="tab_content4" aria-labelledby="share-tab">
@@ -135,29 +81,27 @@
 										<tr>
 										  <th>Name</th>
 										  <th>Email</th>
+										  <th>Phone</th>
 										  <th class="text-center">Invite Sent</th>
 										  <th class="text-center">Responded</th>
 										</tr>
 									  </thead>
 									  <tbody>
-										<tr>
-										  <td>Mark Otto</td>
-										  <td>asd@mdo.com</td>
-										  <td class="text-center text-success"><i class="fa fa-check fa-lg"></i></td>
-										  <td class="text-center text-success"><i class="fa fa-check fa-lg"></i></td>
-										</tr>
-										<tr>
-										  <td>Jacob Thornton</td>
-										  <td>asd@mdo.com</td>
-										  <td class="text-center text-success"><i class="fa fa-check fa-lg"></i></td>
-										  <td class="text-center text-success"></td>
-										</tr>
-										<tr>
-										  <td>Larry the Bird</td>
-										  <td>asd@mdo.com</td>
-										  <td class="text-center text-success"><i class="fa fa-check fa-lg"></i></td>
-										  <td class="text-center text-success"></td>
-										</tr>
+									  	{if false eq empty($collaborators)}
+									  		{foreach from=$collaborators item="collaborator"}
+												<tr>
+											  		<td>{$collaborator.name__c}</td>
+											  		<td>{$collaborator.email__c}</td>
+											  		<td>{$collaborator.phone__c}</td>
+											  		<td class="text-center text-success"><i class="fa fa-check fa-lg"></i></td>
+											  		<td class="text-center text-success">{if 1 eq isResponded__c}<i class="fa fa-check fa-lg"></i>{/if}</td>
+												</tr>
+											{/foreach}
+										{else}
+											<tr>
+											  	<td colspan="5">No Records Found</td>
+											</tr>
+										{/if}
 									  </tbody>
 									</table>
 
@@ -168,16 +112,49 @@
                         	<br/>
                         	<div class="x_panel">
 								<h2 class="title">
-									<a>1. How likely is it that you would recommend this company to a friend or colleague?</a>
+									<a>1. What is your first reaction to the product?</a>
 								</h2>
 								
-								<div class="col-md-4 col-sm-6 col-xs-12">
+								<div class="col-md-4 col-sm-6 col-xs-12 padder-v" >
 									<div class="x_content">
-										<canvas id="canvasDoughnut"></canvas>
+										<div id="canvasDoughnut" style="width: 100%; height:250px;font-size	: 11px;"></div>
 									</div>
 								</div>
-								 <div class="col-md-4 col-sm-6 col-xs-12">
-									Total Responses: 40
+								 <div class="col-md-2 col-sm-2 col-xs-12">
+								</div>
+								 <div class="col-md-6 col-sm-6 col-xs-12">
+										Answered: 40 <br/><br/>
+										<table class="table table-striped table-bordered">
+													  <thead>
+														<tr>
+														  <th>Answer Choices </th>
+														  <th>Responses</th>
+														</tr>
+													  </thead>
+													  <tbody>
+														<tr>
+														  <td>Very positive</td>
+														  <td>28%</td>
+														</tr>
+														<tr>
+														  <td>Somewhat positive</td>
+														  <td>57%</td>
+														</tr>
+														<tr>
+														  <td>Neutral</td>
+														  <td>6%</td>
+														</tr>
+														<tr>
+														  <td>Somewhat Negative</td>
+														  <td>6%</td>
+														</tr>
+														<tr>
+														  <td>Very Negative</td>
+														  <td>1%</td>
+														</tr>
+													  </tbody>
+													</table>
+									
 								 </div>
 							</div>
 							
@@ -186,13 +163,46 @@
 									<a>2. Overall, how satisfied or dissatisfied are you with our company?</a>
 								</h2>
 								
-								<div class="col-md-4 col-sm-6 col-xs-12">
+								<div class="col-md-4 col-sm-6 col-xs-12 padder-v">
 									<div class="x_content">
-										<canvas id="barchart"></canvas>
+										<div id="barchart" style="width: 100%; height:230px;font-size	: 11px;"></div>
 									</div>
 								</div>
-								 <div class="col-md-4 col-sm-6 col-xs-12">
-									Total Responses: 40
+								<div class="col-md-2 col-sm-2 col-xs-12">
+								</div>
+								 <div class="col-md-6 col-sm-6 col-xs-12">
+										Answered: 40 <br/><br/>
+										<table class="table table-striped table-bordered">
+													  <thead>
+														<tr>
+														  <th>Answer Choices </th>
+														  <th>Responses</th>
+														</tr>
+													  </thead>
+													  <tbody>
+														<tr>
+														  <td>Very positive</td>
+														  <td>28%</td>
+														</tr>
+														<tr>
+														  <td>Somewhat positive</td>
+														  <td>57%</td>
+														</tr>
+														<tr>
+														  <td>Neutral</td>
+														  <td>6%</td>
+														</tr>
+														<tr>
+														  <td>Somewhat Negative</td>
+														  <td>6%</td>
+														</tr>
+														<tr>
+														  <td>Very Negative</td>
+														  <td>1%</td>
+														</tr>
+													  </tbody>
+													</table>
+									
 								 </div>
 							</div>
 							
@@ -201,7 +211,7 @@
 									<a>3. Do you have any other comments, questions, or concerns?</a>
 								</h2>
 								<div class="col-md-4 col-sm-6 col-xs-12">
-									Total Responses: 40<br/>
+									Answered: 40<br/>
 									<a id="toggleResponse" href="javascript:;">View Responses</a>
 								 </div>
 								 <div class="col-md-12 col-sm-12 col-xs-12">
@@ -250,55 +260,120 @@
 
 </div>
 
-<script src="/js/Chart.min.js"></script>
+<script src="/js/amcharts/amcharts.js" type="text/javascript"></script>
+<script src="/js/amcharts/serial.js" type="text/javascript"></script>
+<script src="/js/amcharts/pie.js" type="text/javascript"></script>
+<script src="/js/amcharts/themes/dark.js" type="text/javascript"></script>
+<script src="/js/amcharts/themes/light.js" type="text/javascript"></script>
+<script src="/js/amcharts/plugins/responsive/responsive.min.js" type="text/javascript"></script>
 <script src="/js/iCheck/icheck.min.js"></script>
+<script src="/js/switchery/switchery.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-	      // Doughnut chart
-	      Chart.defaults.global.legend = {
-        	enabled: false
-     	 };
-	      
-	      var ctx = document.getElementById("canvasDoughnut");
-	      var data = {
-	        labels: [
-	          "Dark Grey",
-	          "Purple Color",
-	          "Gray Color",
-	          "Green Color",
-	          "Blue Color"
-	        ],
-	        datasets: [{
-	          data: [120, 50, 140, 180, 100],
-	          backgroundColor: [
-	            "#455C73",
-	            "#9B59B6",
-	            "#BDC3C7",
-	            "#26B99A",
-	            "#3498DB"
-	          ],
-	          hoverBackgroundColor: [
-	            "#34495E",
-	            "#B370CF",
-	            "#CFD4D8",
-	            "#36CAAB",
-	            "#49A9EA"
-	          ]
 
-	        }]
-	      };
+		var elem = document.querySelector('.active-swich');
+		var init = new Switchery(elem,{ 
+		    color: '#64bd63', 
+		  	secondaryColor: '#a94442' 
+		});
 
-	      var canvasDoughnut = new Chart(ctx, {
-	        type: 'doughnut',
-	        tooltipFillColor: "rgba(51, 51, 51, 0.55)",
-	        data: data
-	      });
+		elem.onchange = function() {
+			if(elem.checked) {
+				$('#survey-status').html('Open');
+			} else {
+				$('#survey-status').html('Closed');
+			}
+		};
+		
+		var chart = AmCharts.makeChart( "canvasDoughnut", {
+			  "type": "pie",
+			  "theme": "light",
+			  "dataProvider": [ {
+			    "title": "Very positive",
+			    "value": 4852
+			  	}, {
+			    "title": "Somewhat positive",
+			    "value": 9899
+			  	}, {
+				    "title": "Neutral",
+				    "value": 1009
+				}, {
+					"title": "Somewhat negative",
+					"value": 899
+				}, {
+					"title": "Very	 negative",
+					"value": 500
+				} ],
+			  "titleField": "title",
+			  "valueField": "value",
+			  "labelRadius": 5,
 
-	      var barchart = document.getElementById("barchart");
+			  "radius": "42%",
+			  "innerRadius": "60%",
+			  "labelText": "[[title]]",
+			  "export": {
+			    "enabled": true
+			  }
+			} );
+
+		var chart = AmCharts.makeChart( "barchart", {
+			  "type": "serial",
+			  "theme": "light",
+			  "rotate": true,
+			  "dataProvider": [ {
+				    "title": "Very positive",
+				    "value": 452
+				  	}, {
+				    "title": "Somewhat positive",
+				    "value": 999
+				  	}, {
+					    "title": "Neutral",
+					    "value": 1009
+					}, {
+						"title": "Somewhat negative",
+						"value": 899
+					}, {
+						"title": "Very	 negative",
+						"value": 500
+					}  ],
+			  "valueAxes": [ {
+			    "gridColor": "#FFFFFF",
+			    "gridAlpha": 0.2,
+			    "dashLength": 0
+			  } ],
+			  "gridAboveGraphs": true,
+			  "startDuration": 1,
+			  "graphs": [ {
+			    "balloonText": "[[category]]: <b>[[value]]</b>",
+			    "fillAlphas": 0.8,
+			    "lineAlpha": 0.2,
+			    "type": "column",
+			    "valueField": "value"
+			  } ],
+			  "chartCursor": {
+			    "categoryBalloonEnabled": false,
+			    "cursorAlpha": 0,
+			    "zoomable": false
+			  },
+			  "categoryField": "title",
+			  "categoryAxis": {
+			    "gridPosition": "start",
+			    "gridAlpha": 0,
+			    "tickPosition": "start",
+			    "tickLength": 20
+			  },
+			  "export": {
+			    "enabled": true
+			  }
+
+			} );
+		
+
+	      /*var barchart = document.getElementById("barchart");
 	      var myBarChart = new Chart(barchart, {
 	    	    type: 'horizontalBar',
 	    	    data: data
-	      });
+	      });***********/
 
 	      $('#toggleResponse').on('click', function() {
 			 $('#showResponse').toggle();

@@ -4136,3 +4136,20 @@ ul.notifications {
 
 /*breadcrumb*/
 .breadcrumb{background-color: #fafbfc;border:1px solid #e0e4e8;padding-left: 10px;font-size: 12px;}
+
+#datatable-responsive tbody tr:hover td {
+    background: #e1e5e9;
+    cursor: pointer;
+}
+.switchery>small {
+    width: 20px;
+    height: 20px;
+}
+
+.switchery {
+    width: 32px;
+    height: 20px;
+}
+.padder{padding:0 15px;}
+.padder-v{padding-top: 15px;padding-bottom: 15px;}
+.no-padder{padding: 0 !important;}

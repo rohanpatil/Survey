@@ -20,6 +20,8 @@
     <link href="/css/iCheck/skins/flat/green.css" rel="stylesheet">
     <link href="/js/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
     <link href="/js/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+    
+	<link href="/js/switchery/switchery.min.css" rel="stylesheet">
     <!-- Custom Theme Style -->
     <link href="/css/custom.css" rel="stylesheet">
     <!-- jQuery -->

@@ -4,25 +4,22 @@
               <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 <div class="tile-stats">
                   <div class="icon"><i class="fa fa-file-text-o"></i></div>
-                  <div class="count">179</div>
+                  <div class="count">{$total_surveys}</div>
                   <h3>Total Surveys</h3>
-                  <p>Lorem ipsum psdea itgum rixt.</p>
                 </div>
               </div>
               <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 <div class="tile-stats">
                   <div class="icon"><i class="fa fa-check-square-o"></i></div>
-                  <div class="count">179</div>
+                  <div class="count">{$completed_surveys}</div>
                   <h3>Completed Surveys</h3>
-                  <p>Lorem ipsum psdea itgum rixt.</p>
                 </div>
               </div>
               <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 <div class="tile-stats">
                   <div class="icon"><i class="fa fa-folder-open-o"></i></div>
-                  <div class="count">179</div>
+                  <div class="count">{$open_surveys}</div>
                   <h3>Open Surveys</h3>
-                  <p>Lorem ipsum psdea itgum rixt.</p>
                 </div>
               </div>
             </div>
@@ -44,33 +41,21 @@
                 <div class="col-md-6 col-sm-6 col-xs-12">
                   <div class="x_panel">
                     <div class="x_title">
-                      <h2>Recent Surveys</h2>                     
+                      <h2>Recent Active Surveys</h2>                     
                       <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
 
                       <div class="">
                         <ul class="to_do">
-                          <li>
-                            <p>
-                              Schedule meeting with new client </p>
-                          </li>
-                          <li>
-                            <p>
-                              Create email address for new intern</p>
-                          </li>
-                          <li>
-                            <p>
-                              Have IT fix the network printer</p>
-                          </li>
-                          <li>
-                            <p>
-                              Copy backups to offsite location</p>
-                          </li>
-                          <li>
-                            <p>
-                              Food truck fixie locavors mcsweeney</p>
-                          </li>
+                        	{foreach from=$recent_surveys item="survey"}
+                        		<a href="/surveys/view_survey/{$survey.id__c}">
+                        			<li>
+                            			{$survey.title__c}
+                          			</li>
+                          		</a>
+                        	{/foreach}
+                          
                         </ul>
                       </div>
                     </div>
