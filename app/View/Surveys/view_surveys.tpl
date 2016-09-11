@@ -21,7 +21,7 @@
                       	{foreach from=$surveys item="survey"}
                         <tr>
                           <td data-id="{$survey.id__c}">{$survey.title__c}</td>
-                          <td>{$survey.description__c}</td>
+                          <td>{$survey.description__c|wordwrap:40:"<br />\n"}</td>
                           <td><span class="label {if $survey.isActive__c == true}label-success{else}label-danger{/if}">{if $survey.isActive__c == false}Inactive{else}Active{/if}</span></td>
                           <td>{$survey.createdon__c|date_formatter:'d/m/Y H:i'}</td>
                           <td>{$survey.questions_count__c}</td>
