@@ -198,7 +198,7 @@
         $('#wizard').smartWizard({
         	keyNavigation: false,
         	reverseButtonsOrder: true,
-        	onLeaveStep:leaveAStepCallback
+        	//onLeaveStep:leaveAStepCallback
         });
 
         $('.buttonNext').addClass('btn btn-success');
